@@ -1,6 +1,6 @@
 import React from 'react'
 import '../index.css'
-import '../app.css'
+import '../App.css'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import MovieCarousel from '../components/MovieCarousel'
