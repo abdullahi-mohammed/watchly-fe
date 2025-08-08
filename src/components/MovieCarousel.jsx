@@ -21,12 +21,13 @@ const MovieCarousel = () => {
     };
 
     const scroll = (direction) => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollBy({
-                left: direction === 'left' ? -300 : 300,
-                behavior: 'smooth',
-            });
-        }
+        const container = scrollRef.current;
+        if (!container) return;
+        const scrollAmount = Math.floor(container.clientWidth * 0.8);
+        container.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth',
+        });
     };
 
     if (loading) {
@@ -53,19 +54,19 @@ const MovieCarousel = () => {
                 {/* Scrollable Movies */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-8"
+                    className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-8 snap-x snap-mandatory"
                 >
                     {Array.isArray(movies) && movies.length > 0 ? (
                         movies.map((movie, index) => (
                             <div
                                 key={index}
                                 onClick={() => handleSelectMovie(movie)}
-                                className="min-w-[140px] sm:min-w-[200px] cursor-pointer rounded-lg overflow-hidden flex-shrink-0"
+                                className="w-28 sm:w-40 md:w-48 lg:w-56 xl:w-64 aspect-[2/3] cursor-pointer rounded-lg overflow-hidden flex-shrink-0 snap-start bg-neutral-900"
                             >
                                 <img
                                     src={movie.thumbnail_url || '/placeholder.png'}
                                     alt={movie.title}
-                                    className="w-full h-[200px] sm:h-[468px] object-cover rounded-lg"
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         ))
