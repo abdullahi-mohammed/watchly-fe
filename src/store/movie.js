@@ -17,7 +17,7 @@ const useMovieStore = create((set) => ({
             const res = await api.get('/movies')
             console.log(res.data, 'Fetched movies');
 
-            set({ movies: res.data, loading: false })
+            set({ movies: res.data.data, loading: false })
         } catch (err) {
             set({ error: err.message, loading: false })
         }
