@@ -21,12 +21,13 @@ const MovieCarousel = () => {
     };
 
     const scroll = (direction) => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollBy({
-                left: direction === 'left' ? -300 : 300,
-                behavior: 'smooth',
-            });
-        }
+        const container = scrollRef.current;
+        if (!container) return;
+        const scrollAmount = Math.floor(container.clientWidth * 0.8);
+        container.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth',
+        });
     };
 
     if (loading) {
@@ -34,7 +35,7 @@ const MovieCarousel = () => {
     }
 
     return (
-        <div className="w-full py-6 px-2 sm:px-4 relative bg-black">
+        <div className="lg:w-full w-[200px] min-w-[380px] lg:max-w-[950px] py-6 px-2 sm:px-4 relative bg-black">
             {/* Header */}
             <div className="flex justify-between items-center mb-4 px-2 sm:px-0">
                 <h2 className="text-white text-base sm:text-lg font-medium">SHORT MOVIES</h2>
@@ -53,19 +54,19 @@ const MovieCarousel = () => {
                 {/* Scrollable Movies */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-8"
+                    className="flex w-full min-w-[340px] lg:max-w-[1200px] gap-3 sm:gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-8 snap-x snap-mandatory"
                 >
                     {Array.isArray(movies) && movies.length > 0 ? (
                         movies.map((movie, index) => (
                             <div
                                 key={index}
                                 onClick={() => handleSelectMovie(movie)}
-                                className="min-w-[140px] sm:min-w-[200px] cursor-pointer rounded-lg overflow-hidden flex-shrink-0"
+                                className="cursor-pointer w-[200px] h-[200px] lg:w-[340px] lg:h-[408px] rounded-lg flex-shrink-0 snap-start bg-neutral-900"
                             >
                                 <img
                                     src={movie.thumbnail_url || '/placeholder.png'}
                                     alt={movie.title}
-                                    className="w-full h-[200px] sm:h-[468px] object-cover rounded-lg"
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         ))
