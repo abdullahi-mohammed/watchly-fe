@@ -11,7 +11,7 @@ const Header = () => {
 
                 <div className="flex justify-center md:flex-row items-center gap-4 md:w-auto">
                     <div className="flex items-center gap-2 bg-gray-800 p-2 rounded md:w-auto">
-                        <img src={searchicon} alt="search icon" />
+                        <img src={searchicon} alt="search icon" width={12} className='w-[16px] h-[16px]' />
                         <input
                             type="search"
                             name="movie search"
