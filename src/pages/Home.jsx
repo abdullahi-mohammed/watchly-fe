@@ -14,7 +14,7 @@ const Home = () => {
                 <Header />
                 <Hero />
             </div>
-            <div className='flex'>
+            <div className='flex md:flex-row flex-col gap-4 items-center justify-items-start max-w-[1200px] w-full my-0 mx-auto p-4'>
                 <aside><Filter /></aside>
                 <section><MovieCarousel /></section>
             </div>

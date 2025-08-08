@@ -1,16 +1,17 @@
 import React from 'react'
 import logo from '../assets/watchly_logo.png'
+import searchicon from '../assets/magnifying-glass (1) 1.svg'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <header className="flex flex-col md:flex-row justify-between items-center p-4 text-white text-2xl font-semibold gap-4 md:gap-0">
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
-                <img src={logo} className="w-[60px] h-[24px] md:w-[154px] md:h-[74px]" alt="watchly logo" />
+        <header className="max-w-[1200px] w-full my-0 mx-auto  flex flex-col md:flex-row justify-between items-center p-4 text-white text-[14px] md:text-[18px] font-normal">
+            <div className="flex md:flex-row items-center gap-1 md:gap-4">
+                <img src={logo} className="w-auto h-[40px]" alt="watchly logo" />
 
-                <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
-                    <div className="flex items-center gap-2 bg-gray-800 p-2 rounded w-full md:w-auto">
-                        <img src="" alt="search icon" />
+                <div className="flex justify-center md:flex-row items-center gap-4 md:w-auto">
+                    <div className="flex items-center gap-2 bg-gray-800 p-2 rounded md:w-auto">
+                        <img src={searchicon} alt="search icon" />
                         <input
                             type="search"
                             name="movie search"
@@ -20,16 +21,16 @@ const Header = () => {
                         />
                     </div>
 
-                    <a href="http://" className="w-full md:w-auto text-center">DISCOVER</a>
-                    <a href="http://" className="w-full md:w-auto text-center">ORIGINALS</a>
+                    <a href="http://" className="md:w-auto text-center">DISCOVER</a>
+                    <a href="http://" className="md:w-auto text-center">ORIGINALS</a>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full md:w-auto">
-                <a href="" className="w-full md:w-auto text-center">Cretaors Account</a>
-                <a href="" className="border-l-0 md:border-l-[1px] pl-0 md:pl-4 w-full md:w-auto text-center">Login</a>
+            <div className="flex md:flex-row gap-4 items-center">
+                <a href="" className="">Creators Account</a>
+                <a href="" className="border-l-0 md:border-l-[1px] pl-0 md:pl-4 text-center">Login</a>
                 <Link
                     to="/upload/video"
-                    className="font-extrabold bg-[#3864AB] px-2.5 py-3 rounded-[10px] w-full md:w-auto text-center"
+                    className="font-medium bg-[#3864AB] px-2 py-3 rounded-[10px] text-center"
                 >
                     Upload
                 </Link>
