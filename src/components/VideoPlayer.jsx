@@ -70,7 +70,7 @@ const CustomVideoPlayer = () => {
     return (
         <div
             ref={containerRef}
-            className="relative md:h-[90vh] bg-black w-full max-w-5xl mx-auto rounded overflow-hidden"
+            className="relative md:h-[85vh] bg-black w-full max-w-5xl mx-auto rounded overflow-hidden"
         >
             <video
                 ref={videoRef}
